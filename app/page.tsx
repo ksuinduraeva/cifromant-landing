@@ -49,7 +49,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="scroll-hint">
-            <span className="dot" /><span>листайте</span><span className="dot r" />
+            <span className="dot" /><span className="dot r" />
           </div>
         </section>
 
