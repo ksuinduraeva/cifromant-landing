@@ -6,7 +6,7 @@ import { schemaTypes } from './sanity/schemas'
 export default defineConfig({
   name: 'cifromant',
   title: 'Цифромант',
-  projectId: 'bqt215a',
+  projectId: 'bgot2t5a',
   dataset: 'production',
   basePath: '/studio',
   plugins: [structureTool(), visionTool()],
