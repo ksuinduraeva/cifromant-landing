@@ -48,9 +48,6 @@ export default async function Home() {
               </div>
             </div>
           </div>
-          <div className="scroll-hint">
-            <span className="dot" /><span className="dot r" />
-          </div>
         </section>
 
         {/* ARTICLES */}
