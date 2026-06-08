@@ -8,6 +8,7 @@ export default defineConfig({
   title: 'Цифромант',
   projectId: 'bqt215a',
   dataset: 'production',
+  basePath: '/studio',
   plugins: [structureTool(), visionTool()],
   schema: { types: schemaTypes },
 })
