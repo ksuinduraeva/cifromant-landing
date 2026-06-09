@@ -59,7 +59,7 @@ docs/
 
 | Переменная | Описание |
 |---|---|
-| `NEXT_PUBLIC_SANITY_PROJECT_ID` | `bqt215a` |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | `bgot2t5a` |
 | `NEXT_PUBLIC_SANITY_DATASET` | `production` |
 
 ## Рабочий процесс
