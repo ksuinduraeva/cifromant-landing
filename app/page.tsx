@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getArticles } from '../sanity/client'
 import Starfield from './components/Starfield'
+import Reveal from './components/Reveal'
 
 export const revalidate = 60
 
@@ -35,7 +36,7 @@ export default async function Home() {
         <section className="hero" id="top">
           <div className="hero-bg" />
           <div className="wrap">
-            <div className="hero-copy">
+            <div className="hero-copy reveal">
               <span className="eyebrow dual center">Нумерология нового времени</span>
               <h1><span className="grad">Цифромант</span></h1>
               <p className="lede">
@@ -53,14 +54,14 @@ export default async function Home() {
         {/* ARTICLES */}
         <section className="articles" id="articles">
           <div className="wrap">
-            <div className="section-head">
+            <div className="section-head reveal">
               <span className="eyebrow center">Про нумерологию</span>
               <h2>Разбираемся в числах<br />простым языком</h2>
               <p>Статьи о том, как работает нумерология, что значат числа и как применять их в обычной жизни.</p>
             </div>
             <div className="art-grid">
               {articles.length > 0 ? articles.slice(0, 3).map((a: any, i: number) => (
-                <Link key={a._id} href={`/articles/${a.slug.current}`} className="acard">
+                <Link key={a._id} href={`/articles/${a.slug.current}`} className="acard reveal">
                   <div className="thumb">
                     <span className="ring" />
                     <span className="ring ring2" />
@@ -87,7 +88,7 @@ export default async function Home() {
                     { num: '3', tag: 'Характер', date: '', title: 'Что значит каждое число от 1 до 9', desc: 'Краткий путеводитель по характерам чисел: сильные стороны, слабые места и подходящие профессии для каждого.' },
                     { num: '2', tag: 'Отношения', date: '', title: 'Нумерология совместимости: миф или закономерность', desc: 'Разбираем, как числа описывают динамику пары и почему «несовместимых» сочетаний на самом деле не бывает.' },
                   ].map((a) => (
-                    <div key={a.title} className="acard">
+                    <div key={a.title} className="acard reveal">
                       <div className="thumb">
                         <span className="ring" /><span className="ring ring2" />
                         <span className="moon-g">☾</span>
@@ -104,7 +105,7 @@ export default async function Home() {
                 </>
               )}
             </div>
-            <div className="art-foot">
+            <div className="art-foot reveal">
               <Link href="/articles" className="btn-ghost">
                 Все статьи <span className="arrow">→</span>
               </Link>
@@ -117,13 +118,13 @@ export default async function Home() {
         {/* NUMBERS BAND */}
         <section className="numbers">
           <div className="wrap">
-            <div className="numbers-copy">
+            <div className="numbers-copy reveal">
               <span className="eyebrow dual">От 1 до 9</span>
               <h2>Девять чисел — девять граней вашего характера</h2>
               <p>В нумерологии любая дата, имя и даже сегодняшний день сводятся к одному из <strong>чисел от 1 до 9</strong>. Каждое несёт свой смысл: лидерство, гармонию, творчество, опору, свободу.</p>
               <p>Цифромант берёт эту систему и считает за вас — точно, бережно и понятным языком.</p>
             </div>
-            <div className="num-rail">
+            <div className="num-rail reveal">
               {[1,2,3,4,5,6,7,8,9].map(n => (
                 <div key={n} className="num-cell"><span>{n}</span></div>
               ))}
@@ -136,13 +137,13 @@ export default async function Home() {
         {/* WHAT IS */}
         <section className="what" id="about">
           <div className="wrap">
-            <div className="section-head">
+            <div className="section-head reveal">
               <span className="eyebrow center">Что такое Цифромант</span>
               <h2>Личный нумеролог<br />в вашем Telegram</h2>
               <p>Введите дату рождения — и получите расчёт, который объясняет ваши сильные стороны, ритм дней и отношения с близкими.</p>
             </div>
             <div className="feature-grid">
-              <div className="fcard">
+              <div className="fcard reveal">
                 <div className="crest">
                   <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round">
                     <circle cx="24" cy="24" r="18" />
@@ -155,7 +156,7 @@ export default async function Home() {
                 <h3>Мои числа</h3>
                 <p>Число судьбы, число души и характера — рассчитанные по дате рождения и имени. Понятная расшифровка без эзотерического тумана.</p>
               </div>
-              <div className="fcard">
+              <div className="fcard reveal">
                 <div className="crest">
                   <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M32 7 a18 18 0 1 0 0 34 a14 14 0 1 1 0 -34 z" />
@@ -166,7 +167,7 @@ export default async function Home() {
                 <h3>Прогноз на каждый день</h3>
                 <p>Персональное число дня и мягкая подсказка: где сегодня стоит проявить себя, а где — притормозить и прислушаться.</p>
               </div>
-              <div className="fcard">
+              <div className="fcard reveal">
                 <div className="crest">
                   <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="18" cy="24" r="12" />
@@ -187,7 +188,7 @@ export default async function Home() {
         <section className="cta" id="cta">
           <Image className="cmoon" src="/cta-moon.png" alt="" width={680} height={680} aria-hidden="true" />
           <div className="wrap">
-            <div className="cta-inner">
+            <div className="cta-inner reveal">
               <span className="eyebrow center">Это бесплатно</span>
               <h2>Узнай свои числа <span className="grad">прямо сейчас</span></h2>
               <p>Ответьте на пару вопросов в Telegram-боте — и получите свой нумерологический разбор за минуту.</p>
@@ -232,6 +233,7 @@ export default async function Home() {
       </div>
 
       <Starfield />
+      <Reveal />
     </>
   )
 }
