@@ -1,35 +1,43 @@
 name: Deploy to Timeweb
 
-  on:
-    push:
-      branches: [main]
-    workflow_dispatch:
+# Запускается автоматически при каждом пуше в main,
+# а также вручную из вкладки Actions (кнопка Run workflow).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
 
-  jobs:
-    build-and-deploy:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Забираем код из репозитория
+      - name: Checkout
+        uses: actions/checkout@v4
 
-        - name: Setup Node.js
-          uses: actions/setup-node@v4
-          with:
-            node-version: 22
-            cache: npm
+      # 2. Ставим Node.js (та же версия, что и локально)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
-        - name: Install dependencies
-          run: npm ci
+      # 3. Устанавливаем зависимости строго по package-lock.json
+      - name: Install dependencies
+        run: npm ci
 
-        - name: Build static site
-          run: npm run build
+      # 4. Собираем статический сайт в папку out/
+      - name: Build static site
+        run: npm run build
 
-        - name: Deploy to Timeweb via FTP
-          uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-          with:
-            server: vh464.timeweb.ru
-            username: cc818984_deploy
-            password: ${{ secrets.FTP_PASSWORD }}
-            protocol: ftps
-            local-dir: ./out/
-            server-dir: /public_html/
+      # 5. Заливаем содержимое out/ на хостинг Timeweb по FTP (через TLS).
+      #    Пароль берётся из секрета репозитория FTP_PASSWORD — в коде его нет.
+      - name: Deploy to Timeweb via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: vh464.timeweb.ru
+          username: cc818984_deploy
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./out/
+          server-dir: /public_html/
