@@ -1,10 +1,8 @@
 import Link from 'next/link'
-import { getArticles } from '../../sanity/client'
+import { getArticles } from '../../lib/articles'
 
-export const revalidate = 60
-
-export default async function ArticlesPage() {
-  const articles = await getArticles().catch(() => [])
+export default function ArticlesPage() {
+  const articles = getArticles()
 
   return (
     <main className="min-h-screen bg-[#0f0a1e] text-white">
@@ -18,10 +16,10 @@ export default async function ArticlesPage() {
           <p className="text-gray-400">Статьи скоро появятся.</p>
         ) : (
           <div className="flex flex-col gap-8">
-            {articles.map((a: any) => (
+            {articles.map((a) => (
               <Link
-                key={a._id}
-                href={`/articles/${a.slug.current}`}
+                key={a.slug}
+                href={`/articles/${a.slug}`}
                 className="group border border-white/10 rounded-2xl p-6 hover:border-purple-500/50 transition-colors"
               >
                 <p className="text-gray-500 text-sm mb-2">

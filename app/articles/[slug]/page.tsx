@@ -1,21 +1,14 @@
 import Link from 'next/link'
-import { PortableText } from '@portabletext/react'
-import { getArticle, getArticles } from '../../../sanity/client'
+import { getArticle, getArticles } from '../../../lib/articles'
 import { notFound } from 'next/navigation'
 
-export const revalidate = 60
-
-export async function generateStaticParams() {
-  try {
-    const articles = await getArticles()
-    return articles.map((a: any) => ({ slug: a.slug.current }))
-  } catch {
-    return []
-  }
+export function generateStaticParams() {
+  return getArticles().map((a) => ({ slug: a.slug }))
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const article = await getArticle(params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const article = getArticle(slug)
   if (!article) return {}
   return {
     title: `${article.title} — Цифромант`,
@@ -23,8 +16,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function ArticlePage({ params }: { params: { slug: string } }) {
-  const article = await getArticle(params.slug)
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const article = getArticle(slug)
   if (!article) notFound()
 
   return (
@@ -42,9 +36,11 @@ export default async function ArticlePage({ params }: { params: { slug: string }
 
         <h1 className="text-4xl font-bold mb-10 leading-tight">{article.title}</h1>
 
-        <div className="prose prose-invert prose-purple max-w-none text-gray-300 leading-relaxed">
-          {article.body && <PortableText value={article.body} />}
-        </div>
+        {/* Содержимое — наши собственные Markdown-файлы из репозитория (не пользовательский ввод), XSS-риска нет */}
+        <div
+          className="prose prose-invert prose-purple max-w-none text-gray-300 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: article.bodyHtml }}
+        />
 
         <div className="mt-16 pt-10 border-t border-white/10 text-center">
           <p className="text-gray-400 mb-6">Хочешь узнать свои числа?</p>

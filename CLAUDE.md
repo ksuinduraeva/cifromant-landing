@@ -31,11 +31,15 @@
 
 ## Стек лендинга
 
-- **Next.js 15** (App Router) — фреймворк, SSG/SSR для SEO
+- **Next.js 16** (App Router) — фреймворк, **статический экспорт** (`output: 'export'`) для SEO
 - **TypeScript** — типизация
 - **Tailwind CSS** — стили
-- **Sanity** — headless CMS для статей (редактор на `/studio`)
-- **Vercel** — хостинг, автодеплой из ветки `main`
+- **Markdown-файлы** — статьи (`content/articles/*.md`), без CMS
+- **Хостинг:** переезд с Vercel на **Timeweb** (российский — доступен без VPN). Автодеплой через GitHub Actions
+
+> **Почему ушли с Vercel и Sanity:**
+> - Vercel и Cloudflare замедляются/блокируются РКН → российские юзеры не открывали сайт без VPN. Поскольку весь смысл лендинга — РФ-трафик из Яндекса, переезжаем на российский хостинг.
+> - Sanity (CMS) был избыточен: статьи всё равно пишутся в Claude Code и коммитятся в репозиторий, веб-редактор не нужен. Убрав Sanity, сайт стал полностью статическим → его можно положить на любой дешёвый хостинг.
 
 ## Структура
 
@@ -44,29 +48,39 @@ app/
   page.tsx                  # главная страница
   articles/
     page.tsx                # список статей
-    [slug]/page.tsx         # отдельная статья
-  studio/[[...tool]]/       # Sanity Studio (редактор статей)
-sanity/
-  schemas/article.ts        # схема статьи
-  client.ts                 # клиент Sanity + функции запросов
-sanity.config.ts            # конфиг Sanity
+    [slug]/page.tsx         # отдельная статья (рендерит Markdown → HTML)
+  components/
+    Starfield.tsx           # звёздное небо (client)
+    Reveal.tsx              # анимация появления блоков при скролле (client)
+lib/
+  articles.ts              # чтение статей из content/articles/*.md (fs + gray-matter + marked)
+content/
+  articles/*.md            # сами статьи (frontmatter + Markdown)
 docs/
   bot-context.md            # полный контекст бота-близнеца
   promotion-plan.md         # план раскрутки
+next.config.ts              # output: 'export', images.unoptimized
 ```
 
-## Окружение
+## Как добавить статью
 
-| Переменная | Описание |
-|---|---|
-| `NEXT_PUBLIC_SANITY_PROJECT_ID` | `bgot2t5a` |
-| `NEXT_PUBLIC_SANITY_DATASET` | `production` |
+1. Создать файл `content/articles/<slug>.md`. Имя файла = URL статьи.
+2. Frontmatter (строковые значения **обязательно в кавычках** — иначе двоеточие в тексте ломает YAML):
+   ```
+   ---
+   title: "Заголовок статьи"
+   description: "Краткое описание для SEO."
+   publishedAt: "2026-06-03"
+   ---
+   ```
+3. Дальше — текст статьи в Markdown (`## подзаголовки`, `**жирный**`, списки).
+4. Запушить в `main` → GitHub Actions соберёт и зальёт на Timeweb.
 
 ## Рабочий процесс
 
-1. Код пишем локально в `/Documents/projects/landing/`
-2. Пушим в `main` → Vercel автоматически деплоит на cifromant.ru
-3. Статьи добавляются через cifromant.ru/studio (без кода)
+1. Код и статьи пишем локально в `/Documents/projects/landing/`
+2. Пушим в `main` → **GitHub Actions** собирает статику (`npm run build` → `out/`) и заливает на Timeweb
+3. Сайт обновляется автоматически — как раньше на Vercel, цепочка для владельца не меняется
 
 ## Страницы
 
@@ -74,7 +88,6 @@ docs/
 /                — главная: hero, что умеет бот, CTA → Telegram
 /articles        — список SEO-статей про нумерологию
 /articles/[slug] — отдельная статья + CTA в конце → бот
-/studio          — Sanity редактор (только для администратора)
 ```
 
 ## Дизайн
@@ -86,6 +99,7 @@ docs/
 - Hero: фон — взрывающиеся часы (`/public/hero-clock.png`) с градиентным оверлеем
 - CTA-секция: золотой месяц на фоне (`/public/cta-moon.png`)
 - Звёздное небо: анимированные точки (компонент `Starfield`)
+- Появление блоков при скролле: плавный fade-up (компонент `Reveal` + класс `.reveal` на блоках)
 - Tone of voice: тёплый, конкретный, без мистики и пафоса — тексты на «ты»
 
 ## Правила контента
@@ -106,11 +120,18 @@ docs/
 ## План развития лендинга
 
 ### Фаза 1 — Запуск ✅
-- [x] Next.js + Sanity + Vercel
-- [x] Главная страница
-- [x] Страницы статей
+- [x] Next.js, главная страница, страницы статей
 - [x] Подключён домен cifromant.ru
 - [x] Дизайн перенесён из Claude Design (тёмно-синий + золото, Cormorant Garamond + Manrope, hero с часами, звёздное небо, секции)
+- [x] Анимация появления блоков при скролле (`Reveal`)
+
+### Фаза 1.5 — Переезд на российский хостинг (в работе)
+- [x] Убрать Sanity → статьи на Markdown (`content/articles/*.md`)
+- [x] Статический экспорт Next.js (`output: 'export'`)
+- [ ] Регистрация на Timeweb + тариф (на стороне владельца)
+- [ ] GitHub Actions: сборка `out/` + заливка на Timeweb при пуше в `main`
+- [ ] Переключить домен cifromant.ru с Vercel на Timeweb (смена DNS)
+- [ ] Отключить Vercel
 
 ### Фаза 2 — Контент (следующая)
 - [ ] Первые 5 SEO-статей про нумерологию

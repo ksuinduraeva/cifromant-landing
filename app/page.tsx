@@ -1,13 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { getArticles } from '../sanity/client'
+import { getArticles } from '../lib/articles'
 import Starfield from './components/Starfield'
 import Reveal from './components/Reveal'
 
-export const revalidate = 60
-
-export default async function Home() {
-  const articles = await getArticles().catch(() => [])
+export default function Home() {
+  const articles = getArticles()
 
   return (
     <>
@@ -61,7 +59,7 @@ export default async function Home() {
             </div>
             <div className="art-grid">
               {articles.length > 0 ? articles.slice(0, 3).map((a: any, i: number) => (
-                <Link key={a._id} href={`/articles/${a.slug.current}`} className="acard reveal">
+                <Link key={a.slug} href={`/articles/${a.slug}`} className="acard reveal">
                   <div className="thumb">
                     <span className="ring" />
                     <span className="ring ring2" />
