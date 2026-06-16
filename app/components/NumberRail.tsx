@@ -39,19 +39,15 @@ export default function NumberRail() {
         ))}
       </div>
 
-      <div className="num-panel" aria-live="polite">
-        {current ? (
-          <>
-            <div className="num-panel-head">
-              <span className="num-panel-n">{current.n}</span>
-              <h4>{current.title}</h4>
-            </div>
-            <p>{current.desc}</p>
-          </>
-        ) : (
-          <p className="num-panel-hint">Нажмите на число, чтобы узнать его значение.</p>
-        )}
-      </div>
+      {current && (
+        <div className="num-panel" aria-live="polite">
+          <div className="num-panel-head">
+            <span className="num-panel-n">{current.n}</span>
+            <h4>{current.title}</h4>
+          </div>
+          <p>{current.desc}</p>
+        </div>
+      )}
     </div>
   )
 }

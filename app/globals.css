@@ -181,7 +181,6 @@ section { position: relative; }
 .num-panel-n { font-family: var(--serif); font-weight: 600; font-size: 40px; line-height: 1; color: var(--gold-bright); }
 .num-panel h4 { font-family: var(--serif); font-weight: 600; font-size: 27px; color: var(--cream); }
 .num-panel p { font-size: 16px; line-height: 1.7; color: var(--text); }
-.num-panel-hint { color: var(--text-dim); font-size: 15.5px; }
 
 /* ARTICLES */
 .articles { padding: 130px 0; }
