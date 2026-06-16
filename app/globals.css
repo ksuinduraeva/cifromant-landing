@@ -200,7 +200,7 @@ section { position: relative; }
 
 /* CTA */
 .cta { padding: 140px 0; position: relative; overflow: hidden; text-align: center; }
-.cta .cmoon { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 680px; max-width: 120%; opacity: 0.16; z-index: 0; pointer-events: none; }
+.cta .cmoon { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 680px; max-width: 120%; height: auto; opacity: 0.16; z-index: 0; pointer-events: none; }
 .cta-inner { position: relative; z-index: 5; max-width: 760px; margin: 0 auto; }
 .cta .eyebrow { margin-bottom: 26px; }
 .cta h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(48px, 7vw, 92px); color: var(--cream); line-height: 1.0; margin-bottom: 24px; }
@@ -228,6 +228,9 @@ footer { background: var(--navy-deep); border-top: 1px solid rgba(212,160,23,0.1
   .nav-links { display: none; }
   .feature-grid, .art-grid { grid-template-columns: 1fr; }
   .numbers .wrap { grid-template-columns: 1fr; gap: 40px; }
+  .numbers-copy { text-align: center; }
+  .numbers-copy .eyebrow { justify-content: center; }
+  .numbers-copy p { margin-left: auto; margin-right: auto; }
   .foot-top { flex-direction: column; }
   .foot-cols { gap: 40px; }
 }
