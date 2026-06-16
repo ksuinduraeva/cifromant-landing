@@ -167,10 +167,21 @@ section { position: relative; }
   font-family: var(--serif); font-weight: 600; font-size: clamp(34px, 5vw, 52px); color: var(--gold-light);
   background: radial-gradient(circle at 38% 32%, rgba(212,160,23,0.10), rgba(13,27,62,0.2));
   position: relative; transition: all 0.4s cubic-bezier(.2,.8,.2,1);
+  cursor: pointer; appearance: none; -webkit-appearance: none; padding: 0; width: 100%;
 }
 .num-cell span { display: block; transform: translateY(0.06em); }
 .num-cell::before { content: ""; position: absolute; inset: 7px; border-radius: 50%; border: 1px solid rgba(212,160,23,0.12); }
-.num-cell:hover { transform: translateY(-5px); border-color: var(--gold); color: var(--gold-bright); box-shadow: 0 0 30px -6px rgba(212,160,23,0.4); }
+.num-cell:hover, .num-cell:focus-visible { transform: translateY(-5px); border-color: var(--gold); color: var(--gold-bright); box-shadow: 0 0 30px -6px rgba(212,160,23,0.4); outline: none; }
+.num-cell.is-active { border-color: var(--gold); color: var(--gold-bright); background: radial-gradient(circle at 38% 32%, rgba(212,160,23,0.22), rgba(13,27,62,0.25)); box-shadow: 0 0 34px -6px rgba(212,160,23,0.5); }
+.num-cell.is-active::before { border-color: rgba(212,160,23,0.4); }
+
+/* Панель описания числа */
+.num-panel { margin-top: 22px; border: 1px solid var(--line); border-radius: 4px; padding: 22px 26px; min-height: 132px; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(180deg, rgba(20,37,78,0.55) 0%, rgba(13,27,62,0.4) 100%); }
+.num-panel-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 10px; }
+.num-panel-n { font-family: var(--serif); font-weight: 600; font-size: 40px; line-height: 1; color: var(--gold-bright); }
+.num-panel h4 { font-family: var(--serif); font-weight: 600; font-size: 27px; color: var(--cream); }
+.num-panel p { font-size: 16px; line-height: 1.7; color: var(--text); }
+.num-panel-hint { color: var(--text-dim); font-size: 15.5px; }
 
 /* ARTICLES */
 .articles { padding: 130px 0; }

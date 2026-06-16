@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { getArticles } from '../lib/articles'
 import Starfield from './components/Starfield'
 import Reveal from './components/Reveal'
+import NumberRail from './components/NumberRail'
 
 export default function Home() {
   const articles = getArticles()
@@ -69,10 +70,6 @@ export default function Home() {
                   <div className="body">
                     <div className="meta">
                       <span>Нумерология</span>
-                      <span className="dot" />
-                      <span className="date">
-                        {a.publishedAt ? new Date(a.publishedAt).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }) : ''}
-                      </span>
                     </div>
                     <h3>{a.title}</h3>
                     {a.description && <p>{a.description}</p>}
@@ -122,11 +119,7 @@ export default function Home() {
               <p>В нумерологии любая дата, имя и даже сегодняшний день сводятся к одному из <strong>чисел от 1 до 9</strong>. Каждое несёт свой смысл: лидерство, гармонию, творчество, опору, свободу.</p>
               <p>Цифромант берёт эту систему и считает за вас — точно, бережно и понятным языком.</p>
             </div>
-            <div className="num-rail reveal">
-              {[1,2,3,4,5,6,7,8,9].map(n => (
-                <div key={n} className="num-cell"><span>{n}</span></div>
-              ))}
-            </div>
+            <NumberRail />
           </div>
         </section>
 

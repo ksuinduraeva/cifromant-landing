@@ -49,14 +49,6 @@ export default function ArticlesPage() {
                     <div className="body">
                       <div className="meta">
                         <span>Нумерология</span>
-                        {a.publishedAt && (
-                          <>
-                            <span className="dot" />
-                            <span className="date">
-                              {new Date(a.publishedAt).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}
-                            </span>
-                          </>
-                        )}
                       </div>
                       <h3>{a.title}</h3>
                       {a.description && <p>{a.description}</p>}

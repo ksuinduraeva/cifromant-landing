@@ -23,10 +23,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const article = getArticle(slug)
   if (!article) notFound()
 
-  const date = article.publishedAt
-    ? new Date(article.publishedAt).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })
-    : ''
-
   return (
     <>
       <div className="starfield" id="starfield" aria-hidden="true" />
@@ -50,9 +46,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             </Link>
 
             <div className="article-head reveal">
-              <span className="eyebrow">Нумерология</span>
+              <span className="eyebrow dual">Нумерология</span>
               <h1>{article.title}</h1>
-              {date && <p className="article-date">{date}</p>}
             </div>
 
             {/* Содержимое — наши собственные Markdown-файлы из репозитория (не пользовательский ввод), XSS-риска нет */}
