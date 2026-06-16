@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, Manrope } from 'next/font/google'
 import './globals.css'
+import YandexMetrica from './components/YandexMetrica'
 
 const cormorant = Cormorant_Garamond({
   variable: '--font-cormorant',
@@ -25,7 +26,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru" className={`${cormorant.variable} ${manrope.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <YandexMetrica />
+      </body>
     </html>
   )
 }
