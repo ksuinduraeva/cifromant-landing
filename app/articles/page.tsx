@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getArticles } from '../../lib/articles'
 import Starfield from '../components/Starfield'
 import Reveal from '../components/Reveal'
+import ArticleIcon from '../components/ArticleIcon'
 
 export const metadata = {
   title: 'Статьи о нумерологии — Цифромант',
@@ -38,13 +39,13 @@ export default function ArticlesPage() {
               <p style={{ textAlign: 'center', color: 'var(--text-dim)' }}>Статьи скоро появятся.</p>
             ) : (
               <div className="art-grid">
-                {articles.map((a, i) => (
+                {articles.map((a) => (
                   <Link key={a.slug} href={`/articles/${a.slug}`} className="acard reveal">
                     <div className="thumb">
                       <span className="ring" />
                       <span className="ring ring2" />
                       <span className="moon-g">☾</span>
-                      <span className="bignum">{(i % 9) + 1}</span>
+                      <ArticleIcon name={a.icon} />
                     </div>
                     <div className="body">
                       <div className="meta">

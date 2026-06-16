@@ -4,6 +4,7 @@ import { getArticles } from '../lib/articles'
 import Starfield from './components/Starfield'
 import Reveal from './components/Reveal'
 import NumberRail from './components/NumberRail'
+import ArticleIcon from './components/ArticleIcon'
 
 export default function Home() {
   const articles = getArticles()
@@ -59,13 +60,13 @@ export default function Home() {
               <p>Статьи о том, как работает нумерология, что значат числа и как применять их в обычной жизни.</p>
             </div>
             <div className="art-grid">
-              {articles.length > 0 ? articles.slice(0, 3).map((a: any, i: number) => (
+              {articles.length > 0 ? articles.slice(0, 3).map((a: any) => (
                 <Link key={a.slug} href={`/articles/${a.slug}`} className="acard reveal">
                   <div className="thumb">
                     <span className="ring" />
                     <span className="ring ring2" />
                     <span className="moon-g">☾</span>
-                    <span className="bignum">{(i % 9) + 1}</span>
+                    <ArticleIcon name={a.icon} />
                   </div>
                   <div className="body">
                     <div className="meta">

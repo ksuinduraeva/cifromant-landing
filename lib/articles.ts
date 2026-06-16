@@ -13,6 +13,7 @@ export type ArticleMeta = {
   title: string
   description: string
   publishedAt: string
+  icon: string
 }
 
 export type Article = ArticleMeta & {
@@ -37,6 +38,7 @@ function readArticle(slug: string): Article | null {
     title: data.title ?? slug,
     description: data.description ?? '',
     publishedAt: data.publishedAt ? new Date(data.publishedAt).toISOString() : '',
+    icon: data.icon ?? '',
     bodyHtml: marked.parse(content, { async: false }) as string,
   }
 }
@@ -47,7 +49,7 @@ export function getArticles(): ArticleMeta[] {
     .map(readArticle)
     .filter((a): a is Article => a !== null)
     .sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1))
-    .map(({ slug, title, description, publishedAt }) => ({ slug, title, description, publishedAt }))
+    .map(({ slug, title, description, publishedAt, icon }) => ({ slug, title, description, publishedAt, icon }))
 }
 
 // Одна статья целиком (с готовым HTML тела).
