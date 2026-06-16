@@ -1,41 +1,77 @@
 import Link from 'next/link'
 import { getArticles } from '../../lib/articles'
+import Starfield from '../components/Starfield'
+import Reveal from '../components/Reveal'
+
+export const metadata = {
+  title: 'Статьи о нумерологии — Цифромант',
+  description: 'Статьи о том, как работает нумерология, что значат числа и как применять их в обычной жизни — простым языком.',
+}
 
 export default function ArticlesPage() {
   const articles = getArticles()
 
   return (
-    <main className="min-h-screen bg-[#0f0a1e] text-white">
-      <div className="max-w-3xl mx-auto px-6 py-20">
-        <Link href="/" className="text-purple-400 hover:text-purple-300 text-sm mb-10 block">
-          ← На главную
-        </Link>
-        <h1 className="text-4xl font-bold mb-16">Про нумерологию</h1>
+    <>
+      <div className="starfield" id="starfield" aria-hidden="true" />
 
-        {articles.length === 0 ? (
-          <p className="text-gray-400">Статьи скоро появятся.</p>
-        ) : (
-          <div className="flex flex-col gap-8">
-            {articles.map((a) => (
-              <Link
-                key={a.slug}
-                href={`/articles/${a.slug}`}
-                className="group border border-white/10 rounded-2xl p-6 hover:border-purple-500/50 transition-colors"
-              >
-                <p className="text-gray-500 text-sm mb-2">
-                  {a.publishedAt ? new Date(a.publishedAt).toLocaleDateString('ru-RU') : ''}
-                </p>
-                <h2 className="text-xl font-semibold group-hover:text-purple-400 transition-colors mb-2">
-                  {a.title}
-                </h2>
-                {a.description && (
-                  <p className="text-gray-400 text-sm leading-relaxed">{a.description}</p>
-                )}
-              </Link>
-            ))}
+      <div className="page">
+        <header className="nav">
+          <div className="wrap nav-inner">
+            <a href="/" className="brand">
+              <span className="moon-mark">☾</span>Цифромант
+            </a>
+            <a href="https://t.me/number_day_bot" className="nav-cta" target="_blank" rel="noopener">
+              Открыть бот →
+            </a>
           </div>
-        )}
+        </header>
+
+        <section className="article">
+          <div className="wrap">
+            <div className="article-head reveal" style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 64px' }}>
+              <span className="eyebrow center">Про нумерологию</span>
+              <h1>Статьи о числах<br />простым языком</h1>
+            </div>
+
+            {articles.length === 0 ? (
+              <p style={{ textAlign: 'center', color: 'var(--text-dim)' }}>Статьи скоро появятся.</p>
+            ) : (
+              <div className="art-grid">
+                {articles.map((a, i) => (
+                  <Link key={a.slug} href={`/articles/${a.slug}`} className="acard reveal">
+                    <div className="thumb">
+                      <span className="ring" />
+                      <span className="ring ring2" />
+                      <span className="moon-g">☾</span>
+                      <span className="bignum">{(i % 9) + 1}</span>
+                    </div>
+                    <div className="body">
+                      <div className="meta">
+                        <span>Нумерология</span>
+                        {a.publishedAt && (
+                          <>
+                            <span className="dot" />
+                            <span className="date">
+                              {new Date(a.publishedAt).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}
+                            </span>
+                          </>
+                        )}
+                      </div>
+                      <h3>{a.title}</h3>
+                      {a.description && <p>{a.description}</p>}
+                      <span className="read">Читать статью <span className="arrow">→</span></span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
       </div>
-    </main>
+
+      <Starfield />
+      <Reveal />
+    </>
   )
 }
