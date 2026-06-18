@@ -199,6 +199,18 @@ section { position: relative; }
 .acard .thumb .ring { position: absolute; width: 130px; height: 130px; border: 1px solid var(--line); border-radius: 50%; }
 .acard .thumb .ring2 { width: 172px; height: 172px; border-style: dashed; opacity: 0.45; }
 .acard .thumb .moon-g { position: absolute; top: 16px; right: 18px; color: var(--gold-light); font-size: 16px; opacity: 0.7; }
+/* Фото-обложка: настоящее изображение + «вуаль», растворяющая фото в фон карточки и подкрашивающая его золотом */
+.acard .thumb.has-cover { height: 200px; background: var(--navy-deep); }
+.acard .thumb .cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 0.7s cubic-bezier(.2,.8,.2,1); }
+.acard:hover .thumb .cover { transform: scale(1.06); }
+.acard .thumb .cover-veil {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(8,18,48,0) 38%, rgba(11,22,52,0.55) 76%, rgba(13,27,62,0.96) 100%),
+    radial-gradient(130% 80% at 50% 0%, rgba(212,160,23,0.18), transparent 62%);
+  box-shadow: inset 0 0 0 1px rgba(212,160,23,0.16), inset 0 -36px 50px -28px rgba(8,18,48,0.95);
+}
+.acard .thumb.has-cover .moon-g { z-index: 3; opacity: 0.85; text-shadow: 0 1px 10px rgba(0,0,0,0.55); }
 .acard .body { padding: 28px 30px 32px; display: flex; flex-direction: column; flex: 1; }
 .acard .meta { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
 .acard .meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); }

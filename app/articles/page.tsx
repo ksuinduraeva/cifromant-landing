@@ -41,11 +41,22 @@ export default function ArticlesPage() {
               <div className="art-grid">
                 {articles.map((a) => (
                   <Link key={a.slug} href={`/articles/${a.slug}`} className="acard reveal">
-                    <div className="thumb">
-                      <span className="ring" />
-                      <span className="ring ring2" />
-                      <span className="moon-g">☾</span>
-                      <ArticleIcon name={a.icon} />
+                    <div className={`thumb${a.cover ? ' has-cover' : ''}`}>
+                      {a.cover ? (
+                        <>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img className="cover" src={a.cover} alt="" loading="lazy" />
+                          <span className="cover-veil" />
+                          <span className="moon-g">☾</span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="ring" />
+                          <span className="ring ring2" />
+                          <span className="moon-g">☾</span>
+                          <ArticleIcon name={a.icon} />
+                        </>
+                      )}
                     </div>
                     <div className="body">
                       <div className="meta">
