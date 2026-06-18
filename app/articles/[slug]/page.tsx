@@ -45,6 +45,14 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               <span className="arrow">←</span> Все статьи
             </Link>
 
+            {article.cover && (
+              <div className="article-hero reveal">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={article.cover} alt="" />
+                <span className="article-hero-veil" />
+              </div>
+            )}
+
             <div className="article-head reveal">
               <span className="eyebrow dual">Нумерология</span>
               <h1>{article.title}</h1>
