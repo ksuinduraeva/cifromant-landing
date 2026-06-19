@@ -251,11 +251,19 @@ footer { background: var(--navy-deep); border-top: 1px solid rgba(212,160,23,0.1
 .article { padding: 140px 0 110px; position: relative; }
 .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--gold-light); margin-bottom: 34px; transition: color 0.3s; }
 .back-link:hover { color: var(--gold-bright); }
-.article-hero { position: relative; border-radius: 8px; overflow: hidden; margin-bottom: 38px; aspect-ratio: 16 / 7; border: 1px solid rgba(212,160,23,0.18); background: var(--navy-deep); }
-.article-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.article-hero-veil { position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, rgba(8,18,48,0) 55%, rgba(13,27,62,0.5) 100%), radial-gradient(120% 80% at 50% 0%, rgba(212,160,23,0.12), transparent 62%);
-  box-shadow: inset 0 0 0 1px rgba(212,160,23,0.12); }
+/* Фон страницы статьи: обложка как приглушённое изображение вверху, растворяется в navy */
+.article-bg {
+  position: absolute; top: 0; left: 0; right: 0; height: 760px; z-index: 0; pointer-events: none;
+  background-position: center top; background-size: cover; background-repeat: no-repeat;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 24%, transparent 90%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 24%, transparent 90%);
+}
+.article-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(120% 95% at 50% 20%, rgba(8,18,48,0.34) 0%, rgba(8,18,48,0.76) 52%, rgba(8,18,48,0.97) 100%),
+    linear-gradient(180deg, rgba(8,18,48,0.4) 0%, rgba(8,18,48,0.2) 26%, rgba(8,18,48,0.92) 100%);
+}
 .article-head { margin-bottom: 44px; }
 .article-head .eyebrow { margin-bottom: 20px; }
 .article-head h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(38px, 5.5vw, 60px); line-height: 1.08; color: var(--cream); margin-bottom: 18px; }

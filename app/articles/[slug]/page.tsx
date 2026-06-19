@@ -27,6 +27,14 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     <>
       <div className="starfield" id="starfield" aria-hidden="true" />
 
+      {article.cover && (
+        <div
+          className="article-bg"
+          style={{ backgroundImage: `url(${article.cover})` }}
+          aria-hidden="true"
+        />
+      )}
+
       <div className="page">
         <header className="nav">
           <div className="wrap nav-inner">
@@ -44,14 +52,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <Link href="/articles" className="back-link">
               <span className="arrow">←</span> Все статьи
             </Link>
-
-            {article.cover && (
-              <div className="article-hero reveal">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={article.cover} alt="" />
-                <span className="article-hero-veil" />
-              </div>
-            )}
 
             <div className="article-head reveal">
               <span className="eyebrow dual">Нумерология</span>
