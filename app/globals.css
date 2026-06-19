@@ -200,7 +200,7 @@ section { position: relative; }
 .acard .thumb .ring2 { width: 172px; height: 172px; border-style: dashed; opacity: 0.45; }
 .acard .thumb .moon-g { position: absolute; top: 16px; right: 18px; color: var(--gold-light); font-size: 16px; opacity: 0.7; }
 /* Фото-обложка: настоящее изображение + «вуаль», растворяющая фото в фон карточки и подкрашивающая его золотом */
-.acard .thumb.has-cover { height: 200px; background: var(--navy-deep); }
+.acard .thumb.has-cover { height: 230px; background: var(--navy-deep); }
 .acard .thumb .cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 0.7s cubic-bezier(.2,.8,.2,1); }
 .acard:hover .thumb .cover { transform: scale(1.06); }
 .acard .thumb .cover-veil {
