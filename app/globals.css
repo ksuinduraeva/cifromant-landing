@@ -253,16 +253,16 @@ footer { background: var(--navy-deep); border-top: 1px solid rgba(212,160,23,0.1
 .back-link:hover { color: var(--gold-bright); }
 /* Фон страницы статьи: обложка как приглушённое изображение вверху, растворяется в navy */
 .article-bg {
-  position: absolute; top: 0; left: 0; right: 0; height: 760px; z-index: 0; pointer-events: none;
+  position: absolute; top: 0; left: 0; right: 0; height: 820px; z-index: 0; pointer-events: none;
   background-position: center top; background-size: cover; background-repeat: no-repeat;
-  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 24%, transparent 90%);
-  mask-image: linear-gradient(180deg, #000 0%, #000 24%, transparent 90%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 34%, transparent 94%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 34%, transparent 94%);
 }
 .article-bg::after {
   content: ""; position: absolute; inset: 0;
   background:
-    radial-gradient(120% 95% at 50% 20%, rgba(8,18,48,0.34) 0%, rgba(8,18,48,0.76) 52%, rgba(8,18,48,0.97) 100%),
-    linear-gradient(180deg, rgba(8,18,48,0.4) 0%, rgba(8,18,48,0.2) 26%, rgba(8,18,48,0.92) 100%);
+    radial-gradient(125% 100% at 50% 24%, rgba(8,18,48,0.10) 0%, rgba(8,18,48,0.5) 56%, rgba(8,18,48,0.95) 100%),
+    linear-gradient(180deg, rgba(8,18,48,0.12) 0%, rgba(8,18,48,0.04) 30%, rgba(8,18,48,0.9) 100%);
 }
 .article-head { margin-bottom: 44px; }
 .article-head .eyebrow { margin-bottom: 20px; }
