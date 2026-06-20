@@ -147,36 +147,25 @@ export default function Home() {
             </div>
             <div className="feature-grid">
               <div className="fcard reveal">
-                <div className="crest">
-                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round">
-                    <circle cx="24" cy="24" r="18" />
-                    <circle cx="24" cy="24" r="11.5" strokeDasharray="2 3" opacity="0.55" />
-                    <text x="24" y="30.5" textAnchor="middle" fontFamily="Cormorant Garamond, serif" fontSize="18" fontWeight="600" fill="currentColor" stroke="none">7</text>
-                    <circle cx="24" cy="6" r="1.4" fill="currentColor" stroke="none" />
-                    <circle cx="42" cy="24" r="1.4" fill="currentColor" stroke="none" />
-                  </svg>
+                <div className="fcard-cover">
+                  <img src="/features/moi-chisla.jpg" alt="" loading="lazy" />
+                  <span className="fcard-veil" />
                 </div>
                 <h3>Мои числа</h3>
                 <p>Число жизненного пути (оно же число судьбы), число души и число самовыражения — рассчитанные по дате рождения и имени. Понятная расшифровка без эзотерического тумана.</p>
               </div>
               <div className="fcard reveal">
-                <div className="crest">
-                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M32 7 a18 18 0 1 0 0 34 a14 14 0 1 1 0 -34 z" />
-                    <path d="M13 13 l1.5 3.2 3.2 1.5 -3.2 1.5 -1.5 3.2 -1.5 -3.2 -3.2 -1.5 3.2 -1.5 z" fill="currentColor" stroke="none" />
-                    <circle cx="16" cy="35" r="1.3" fill="currentColor" stroke="none" />
-                  </svg>
+                <div className="fcard-cover">
+                  <img src="/features/prognoz.jpg" alt="" loading="lazy" />
+                  <span className="fcard-veil" />
                 </div>
                 <h3>Прогноз на каждый день</h3>
                 <p>Персональное число дня и мягкая подсказка: где сегодня стоит проявить себя, а где — притормозить и прислушаться.</p>
               </div>
               <div className="fcard reveal">
-                <div className="crest">
-                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="18" cy="24" r="12" />
-                    <circle cx="30" cy="24" r="12" />
-                    <path d="M24 16.5 l1.4 3 3 1.4 -3 1.4 -1.4 3 -1.4 -3 -3 -1.4 3 -1.4 z" fill="currentColor" stroke="none" />
-                  </svg>
+                <div className="fcard-cover">
+                  <img src="/features/sovmestimost.jpg" alt="" loading="lazy" />
+                  <span className="fcard-veil" />
                 </div>
                 <h3>Совместимость</h3>
                 <p>Сравните свои числа с числами партнёра, друга или коллеги. Узнайте, что вас объединяет и в чём вы дополняете друг друга.</p>
