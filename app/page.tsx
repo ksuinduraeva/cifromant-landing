@@ -208,8 +208,8 @@ export default function Home() {
                 </div>
                 <div className="foot-col">
                   <h4>Документы</h4>
-                  <a href="#">Политика конфиденциальности</a>
-                  <a href="#">Публичная оферта</a>
+                  <Link href="/privacy">Политика конфиденциальности</Link>
+                  <Link href="/oferta">Публичная оферта</Link>
                 </div>
               </div>
             </div>
