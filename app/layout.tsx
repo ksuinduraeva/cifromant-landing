@@ -20,7 +20,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: 'Цифромант — нумерология, которая помогает понять себя',
-  description: 'Цифромант — AI-сервис по нумерологии. Узнайте свои числа, прогноз на каждый день и совместимость. Статьи о нумерологии простым языком.',
+  description: 'Цифромант — AI-сервис по нумерологии. Узнай свои числа, прогноз на каждый день и совместимость. Статьи о нумерологии простым языком.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
