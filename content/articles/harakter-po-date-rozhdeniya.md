@@ -137,4 +137,4 @@ cover: "/articles/harakter.jpg"
 
 Расчёт занимает около минуты — складывать цифры и искать значения вручную не нужно.
 
-*Хочешь продолжить? Читай [как рассчитать число судьбы по дате рождения](/articles/kak-rasschitat-chislo-sudby), [значение чисел судьбы от 1 до 9](/articles/chislo-zhiznennogo-puti-znachenie) и материал о том, [что такое число души](/articles/chislo-dushi).*
+*Хочешь продолжить? Читай [профессия по дате рождения](/articles/professiya-po-date-rozhdeniya), [как понять себя](/articles/kak-ponyat-sebya), [значение чисел судьбы от 1 до 9](/articles/chislo-zhiznennogo-puti-znachenie) и [что такое число души](/articles/chislo-dushi).*

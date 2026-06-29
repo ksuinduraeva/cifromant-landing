@@ -1,5 +1,5 @@
 ---
-title: "Предназначение по дате рождения: как узнать его по числу судьбы"
+title: "Предназначение по дате рождения: как узнать по числу судьбы"
 description: "Как определить предназначение по дате рождения в нумерологии. Рассчитываем число судьбы и разбираем миссию чисел от 1 до 9 и мастер-чисел 11, 22 и 33."
 publishedAt: "2026-06-25"
 icon: "destiny"
@@ -136,4 +136,4 @@ cover: "/articles/prednaznachenie.jpg"
 
 Расчёт занимает около минуты — простым языком и без эзотерического тумана.
 
-*Хочешь глубже? Читай [как рассчитать число судьбы по дате рождения](/articles/kak-rasschitat-chislo-sudby), [значение чисел судьбы от 1 до 9](/articles/chislo-zhiznennogo-puti-znachenie) и о том, [что такое число души](/articles/chislo-dushi).*
+*Хочешь глубже? Читай [профессия по дате рождения](/articles/professiya-po-date-rozhdeniya), [денежный код по дате рождения](/articles/denezhnyy-kod-po-date-rozhdeniya), [значение чисел судьбы от 1 до 9](/articles/chislo-zhiznennogo-puti-znachenie) и [что такое число души](/articles/chislo-dushi).*

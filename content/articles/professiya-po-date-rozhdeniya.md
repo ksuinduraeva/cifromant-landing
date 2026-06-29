@@ -1,6 +1,6 @@
 ---
 title: "Профессия по дате рождения: как выбрать работу по числу судьбы"
-description: "Как выбрать профессию по дате рождения в нумерологии. Рабочий стиль, подходящая среда и сферы деятельности для чисел судьбы от 1 до 9 и мастер-чисел 11, 22 и 33."
+description: "Как выбрать профессию по дате рождения в нумерологии. Рабочий стиль, подходящая среда и сферы деятельности для чисел судьбы от 1 до 9 и мастер-чисел."
 publishedAt: "2026-06-25"
 icon: "destiny"
 cover: "/articles/professiya.jpg"
@@ -133,4 +133,4 @@ cover: "/articles/professiya.jpg"
 
 Расчёт занимает около минуты, простым языком и без эзотерического тумана.
 
-*Хочешь продолжить? Читай [предназначение по дате рождения](/articles/prednaznachenie-po-date-rozhdeniya), [значение чисел судьбы от 1 до 9](/articles/chislo-zhiznennogo-puti-znachenie) и [как рассчитать число судьбы](/articles/kak-rasschitat-chislo-sudby).*
+*Хочешь продолжить? Читай [денежный код по дате рождения](/articles/denezhnyy-kod-po-date-rozhdeniya), [предназначение по дате рождения](/articles/prednaznachenie-po-date-rozhdeniya), [значение чисел судьбы от 1 до 9](/articles/chislo-zhiznennogo-puti-znachenie) и [как рассчитать число судьбы](/articles/kak-rasschitat-chislo-sudby).*
