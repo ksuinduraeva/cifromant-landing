@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Цифромант — лендинг (cifromant.ru)
 
-## Getting Started
+Сайт нумерологического Telegram-бота [**Цифромант**](https://t.me/number_day_bot). Задача сайта — приводить трафик из поиска (SEO-статьи про нумерологию) и конвертировать читателей в пользователей бота.
 
-First, run the development server:
+📖 **Полный контекст проекта — в [`CLAUDE.md`](./CLAUDE.md)**: стек, структура, дизайн, план проекта по фазам (общий для бота и лендинга), правила контента.
+
+## Стек
+
+- **Next.js 16** (App Router), **статический экспорт** (`output: 'export'`) — для SEO
+- **TypeScript** + **Tailwind CSS**
+- Статьи — Markdown-файлы в `content/articles/*.md`, без CMS
+
+## Разработка
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # статика в out/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Деплой
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Пуш в `main` → **GitHub Actions** собирает `out/` и заливает по FTP на **Timeweb** (российский хостинг — сайт открывается без VPN).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+⚠️ FTP-шаг может **молча упасть** (например, если слетел пароль — так уже было). После пуша проверить, что прод отвечает:
 
-## Learn More
+```bash
+curl -I https://cifromant.ru
+```
 
-To learn more about Next.js, take a look at the following resources:
+При сомнении — статус сборки в GitHub → Actions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Как добавить статью
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Создать `content/articles/<slug>.md` (имя файла = URL статьи).
+2. Frontmatter — строковые значения **обязательно в кавычках**, иначе двоеточие в тексте ломает YAML:
+   ```yaml
+   ---
+   title: "Заголовок статьи"
+   description: "Краткое описание для SEO."
+   publishedAt: "2026-06-03"
+   ---
+   ```
+3. Текст в Markdown. Тон — на «ты», без мистики. Термин — «число судьбы».
+4. Пуш в `main` → сайт обновится автоматически.
 
-## Deploy on Vercel
+Подробные правила (обложки, SEO-требования, перелинковка) — в [`CLAUDE.md`](./CLAUDE.md) и [`docs/seo-wordstat-content-plan.md`](./docs/seo-wordstat-content-plan.md).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Документация
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Файл | Что внутри |
+|---|---|
+| [`CLAUDE.md`](./CLAUDE.md) | Главный контекст + план проекта по фазам (зеркало с ботом) |
+| [`docs/bot-context.md`](./docs/bot-context.md) | Как устроен бот: числа, прогнозы, подписка |
+| [`docs/seo-wordstat-content-plan.md`](./docs/seo-wordstat-content-plan.md) | Контент-план: 20 статей, данные Wordstat |
+| [`docs/promotion-plan.md`](./docs/promotion-plan.md) | План раскрутки по каналам (зеркало с ботом) |
