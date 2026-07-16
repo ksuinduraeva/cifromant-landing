@@ -12,9 +12,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const article = getArticle(slug)
   if (!article) return {}
+  const url = `/articles/${slug}/`
   return {
     title: `${article.title} — Цифромант`,
     description: article.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'article',
+      title: `${article.title} — Цифромант`,
+      description: article.description,
+      url,
+      publishedTime: article.publishedAt || undefined,
+      images: article.cover ? [article.cover] : undefined,
+    },
   }
 }
 
@@ -23,8 +33,32 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const article = getArticle(slug)
   if (!article) notFound()
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.description,
+    image: article.cover ? `https://cifromant.ru${article.cover}` : undefined,
+    datePublished: article.publishedAt || undefined,
+    dateModified: article.publishedAt || undefined,
+    inLanguage: 'ru-RU',
+    mainEntityOfPage: `https://cifromant.ru/articles/${slug}/`,
+    author: { '@type': 'Organization', name: 'Цифромант', url: 'https://cifromant.ru' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Цифромант',
+      url: 'https://cifromant.ru',
+    },
+  }
+
   return (
     <>
+      {/* Schema.org разметка статьи — для расширенных сниппетов в поиске */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="starfield" id="starfield" aria-hidden="true" />
 
       {article.cover && (

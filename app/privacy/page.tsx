@@ -6,6 +6,7 @@ export const metadata = {
   title: 'Политика обработки персональных данных — Цифромант',
   description:
     'Политика обработки персональных данных сервиса Цифромант: какие данные собираются, цели, передача третьим лицам и права пользователя.',
+  alternates: { canonical: '/privacy/' },
 }
 
 export default function PrivacyPage() {

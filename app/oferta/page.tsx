@@ -6,6 +6,7 @@ export const metadata = {
   title: 'Публичная оферта — Цифромант',
   description:
     'Публичная оферта сервиса Цифромант: условия платного доступа к Telegram-боту, тарифы, порядок оплаты и возврата средств.',
+  alternates: { canonical: '/oferta/' },
 }
 
 export default function OfertaPage() {

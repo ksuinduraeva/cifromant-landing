@@ -197,7 +197,7 @@ export default function Home() {
             <div className="foot-top">
               <div className="foot-brand">
                 <a href="#top" className="brand"><span className="moon-mark">☾</span>Цифромант</a>
-                <p>AI-сервис по нумерологии. Помогаем понять себя и близких через числа — бережно, без мистики и давления.</p>
+                <p>Нумеролог с искусственным интеллектом. Помогаем понять себя и близких через числа — бережно, без мистики и давления.</p>
               </div>
               <div className="foot-cols">
                 <div className="foot-col">
@@ -205,6 +205,11 @@ export default function Home() {
                   <a href="#about">О Цифроманте</a>
                   <Link href="/articles">Статьи</Link>
                   <a href="https://t.me/number_day_bot" target="_blank" rel="noopener">Telegram-бот</a>
+                </div>
+                <div className="foot-col">
+                  <h4>Мы в соцсетях</h4>
+                  <a href="https://t.me/cifromant_ru" target="_blank" rel="noopener">Канал в Telegram</a>
+                  <a href="https://max.ru/cifromant" target="_blank" rel="noopener">Канал в Максе</a>
                 </div>
                 <div className="foot-col">
                   <h4>Документы</h4>

@@ -7,6 +7,7 @@ import ArticleIcon from '../components/ArticleIcon'
 export const metadata = {
   title: 'Статьи о нумерологии — Цифромант',
   description: 'Статьи о том, как работает нумерология, что значат числа и как применять их в обычной жизни — простым языком.',
+  alternates: { canonical: '/articles/' },
 }
 
 export default function ArticlesPage() {
