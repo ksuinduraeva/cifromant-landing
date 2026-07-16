@@ -209,7 +209,7 @@ export default function Home() {
                 <div className="foot-col">
                   <h4>Мы в соцсетях</h4>
                   <a href="https://t.me/cifromant_ru" target="_blank" rel="noopener">Канал в Telegram</a>
-                  <a href="https://max.ru/cifromant" target="_blank" rel="noopener">Канал в Максе</a>
+                  <a href="https://max.ru/channel_cifromant" target="_blank" rel="noopener">Канал в Максе</a>
                 </div>
                 <div className="foot-col">
                   <h4>Документы</h4>
