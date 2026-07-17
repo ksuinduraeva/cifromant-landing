@@ -37,7 +37,7 @@ export default function Home() {
           <div className="hero-bg" />
           <div className="wrap">
             <div className="hero-copy reveal">
-              <span className="eyebrow dual center">Нумерология нового времени</span>
+              <span className="eyebrow dual center">Нумеролог с искусственным интеллектом</span>
               <h1><span className="grad">Цифромант</span></h1>
               <p className="lede">
                 Числа — это не мистика. Это <em>закономерности</em>, которые помогают понять себя.
@@ -160,7 +160,7 @@ export default function Home() {
                   <span className="fcard-veil" />
                 </div>
                 <h3>Прогноз на каждый день</h3>
-                <p>Персональное число дня и мягкая подсказка: где сегодня стоит проявить себя, а где — притормозить и прислушаться.</p>
+                <p>Каждое утро — персональный прогноз под твои числа: где сегодня проявить себя, а где притормозить, плюс разбор по сферам — дела, отношения, состояние. Как личный нумеролог рядом каждый день — за 299 ₽/мес вместо 3 000 ₽ за разовый разбор.</p>
               </div>
               <div className="fcard reveal">
                 <div className="fcard-cover">
