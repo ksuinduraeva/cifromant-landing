@@ -175,9 +175,19 @@ export default function Calculator() {
   )
 }
 
+// Разметка текстов бота: *жирный* → <strong>, строки-списки «— …» → пункты.
+function renderInline(line: string) {
+  return line.split(/(\*[^*]+\*)/g).map((part, i) => {
+    if (part.startsWith('*') && part.endsWith('*')) {
+      return <strong key={i}>{part.slice(1, -1)}</strong>
+    }
+    return <span key={i}>{part}</span>
+  })
+}
+
 function NumberCard({ r }: { r: Result }) {
   const [open, setOpen] = useState(false)
-  const paragraphs = r.text.split('\n').filter((p) => p.trim())
+  const lines = r.text.split('\n').filter((p) => p.trim())
   const showSteps = r.steps.length > 1
 
   return (
@@ -195,9 +205,26 @@ function NumberCard({ r }: { r: Result }) {
       </button>
       {open && (
         <div className="ncard-body">
-          {paragraphs.map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
+          {lines.map((line, i) => {
+            const t = line.trim()
+            // Строка-пункт списка («— …») — оформляем как элемент с золотым маркером
+            if (t.startsWith('—')) {
+              return (
+                <p key={i} className="ncard-li">{renderInline(t.slice(1).trim())}</p>
+              )
+            }
+            return <p key={i}>{renderInline(t)}</p>
+          })}
+          {r.key === 'lifePath' && (
+            <a
+              className="ncard-bridge"
+              href="https://t.me/number_day_bot"
+              target="_blank"
+              rel="noopener"
+            >
+              ✨ А как твоё число проявится именно сегодня — смотри в Числе дня в боте →
+            </a>
+          )}
         </div>
       )}
     </div>

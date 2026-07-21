@@ -406,3 +406,45 @@ footer { background: var(--navy-deep); border-top: 1px solid rgba(212,160,23,0.1
   .ncard-label { font-size: 21px; }
   .calc-next-inner { padding: 36px 24px; }
 }
+
+/* Мостик из карточки числа в бота */
+.ncard-bridge {
+  display: block; margin-top: 20px; padding: 14px 16px;
+  background: rgba(212,160,23,0.08); border: 1px solid var(--line);
+  border-radius: 12px; color: var(--gold-light); font-size: 14.5px;
+  font-weight: 600; line-height: 1.5; transition: all 0.25s;
+}
+.ncard-bridge:hover { border-color: var(--gold); background: rgba(212,160,23,0.14); }
+
+/* Сравнение «здесь / только в боте» */
+.calc-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 26px 0 28px; text-align: left; }
+.calc-compare-col { border: 1px solid var(--line); border-radius: 16px; padding: 22px 22px 24px; }
+.calc-compare-col.here { background: rgba(255,255,255,0.02); opacity: 0.85; }
+.calc-compare-col.bot {
+  background: radial-gradient(circle at 50% 0%, rgba(212,160,23,0.12), var(--card));
+  border-color: var(--gold);
+  box-shadow: 0 0 34px -10px rgba(212,160,23,0.4);
+}
+.calc-compare-cap {
+  display: block; font-family: var(--sans); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px;
+}
+.calc-compare-col.here .calc-compare-cap { color: var(--text-dim); }
+.calc-compare-col.bot .calc-compare-cap { color: var(--gold-bright); }
+.calc-compare-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.calc-compare-col li { font-size: 14.5px; line-height: 1.5; color: var(--text); }
+.calc-compare-col.here li { color: var(--text-dim); }
+.calc-compare-col li strong { color: var(--gold-light); font-weight: 700; }
+
+@media (max-width: 560px) {
+  .calc-compare { grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* Пункт списка внутри описания числа */
+.ncard-body p.ncard-li {
+  position: relative; padding-left: 20px; margin-top: 8px; font-size: 15px; color: var(--text);
+}
+.ncard-body p.ncard-li::before {
+  content: "◆"; position: absolute; left: 0; color: var(--gold-light); font-size: 10px; top: 4px;
+}
+.ncard-body strong { color: var(--gold-light); font-weight: 700; }

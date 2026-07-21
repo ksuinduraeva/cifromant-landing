@@ -80,18 +80,38 @@ export default function CalcPage() {
           <div className="wrap">
             <div className="calc-next-inner reveal">
               <span className="eyebrow center">А что дальше?</span>
-              <h2>Числа — это только начало</h2>
+              <h2>Это только начало</h2>
               <p>
-                Здесь ты узнал, какой ты в целом. Но каждый день у тебя свой — с собственной энергией.
-                Цифромант — нумеролог с искусственным интеллектом: каждое утро он считает твой личный
-                день по твоим числам и присылает персональный прогноз. Плюс прогнозы на месяц и год и
-                разбор совместимости с любым человеком.
+                Калькулятор показал, <strong>какой ты в целом</strong> — это не меняется. А вот каждый
+                день у тебя свой. В Telegram-боте Цифромант оживает и работает как личный нумеролог с
+                искусственным интеллектом:
               </p>
+
+              <div className="calc-compare">
+                <div className="calc-compare-col here">
+                  <span className="calc-compare-cap">Здесь, на сайте</span>
+                  <ul>
+                    <li>Твои числа — судьбы, дня рождения, души</li>
+                    <li>Описание характера</li>
+                    <li>Один раз посчитал — и всё</li>
+                  </ul>
+                </div>
+                <div className="calc-compare-col bot">
+                  <span className="calc-compare-cap">Только в боте</span>
+                  <ul>
+                    <li>🔮 Персональный прогноз <strong>каждое утро</strong> под твои числа</li>
+                    <li>🌱 Разбор по сферам: дела, отношения, состояние</li>
+                    <li>📆 Прогнозы на месяц и год</li>
+                    <li>💑 Совместимость с любым человеком</li>
+                  </ul>
+                </div>
+              </div>
+
               <p className="calc-next-price">
-                Как личный нумеролог рядом каждый день — за 299 ₽/мес вместо 3 000 ₽ за разовый разбор.
+                Личный нумеролог рядом каждый день — 299 ₽/мес вместо 3 000 ₽ за разовый разбор.
               </p>
               <a href="https://t.me/number_day_bot" className="btn-gold" target="_blank" rel="noopener">
-                Открыть Цифромант в Telegram <span className="arrow">→</span>
+                Получить прогноз в боте <span className="arrow">→</span>
               </a>
             </div>
           </div>
