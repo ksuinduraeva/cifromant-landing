@@ -23,6 +23,7 @@ export default function Home() {
             </a>
             <nav className="nav-links">
               <a href="#about">О сервисе</a>
+              <Link href="/calc">Калькулятор</Link>
               <a href="#articles">Статьи</a>
               <a href="#cta">Telegram-бот</a>
             </nav>
@@ -43,8 +44,11 @@ export default function Home() {
                 Числа — это не мистика. Это <em>закономерности</em>, которые помогают понять себя.
               </p>
               <div className="hero-actions">
-                <a href="https://t.me/number_day_bot" className="btn-gold" target="_blank" rel="noopener">
-                  Узнать свои числа <span className="arrow">→</span>
+                <Link href="/calc" className="btn-gold">
+                  Рассчитать свои числа <span className="arrow">→</span>
+                </Link>
+                <a href="https://t.me/number_day_bot" className="btn-ghost" target="_blank" rel="noopener">
+                  Открыть бот
                 </a>
               </div>
             </div>
