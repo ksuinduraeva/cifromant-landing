@@ -448,3 +448,14 @@ footer { background: var(--navy-deep); border-top: 1px solid rgba(212,160,23,0.1
   content: "◆"; position: absolute; left: 0; color: var(--gold-light); font-size: 10px; top: 4px;
 }
 .ncard-body strong { color: var(--gold-light); font-weight: 700; }
+
+/* Мостик из результатов калькулятора в бота (с прокинутой датой) */
+.calc-tobot {
+  display: block; margin-top: 20px; padding: 20px 22px; text-align: center;
+  background: radial-gradient(circle at 50% 0%, rgba(212,160,23,0.16), var(--card));
+  border: 1px solid var(--gold); border-radius: 16px;
+  box-shadow: 0 0 34px -10px rgba(212,160,23,0.4); transition: all 0.25s;
+}
+.calc-tobot:hover { transform: translateY(-2px); box-shadow: 0 8px 40px -10px rgba(212,160,23,0.55); }
+.calc-tobot-title { display: block; font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--gold-bright); }
+.calc-tobot-sub { display: block; margin-top: 6px; font-size: 14px; color: var(--text); line-height: 1.5; }

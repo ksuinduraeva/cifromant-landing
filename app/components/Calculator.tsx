@@ -169,6 +169,19 @@ export default function Calculator() {
               </div>
             </div>
           )}
+
+          {/* Мостик в бота — дата уже посчитана, прокидываем её в бот через deep-link */}
+          <a
+            className="calc-tobot"
+            href={`https://t.me/number_day_bot?start=calc_${date.replace(/\./g, '')}`}
+            target="_blank"
+            rel="noopener"
+          >
+            <span className="calc-tobot-title">Продолжить в боте с этими числами →</span>
+            <span className="calc-tobot-sub">
+              Дату вводить не нужно — бот подхватит её и пришлёт персональный прогноз на сегодня
+            </span>
+          </a>
         </div>
       )}
     </div>
